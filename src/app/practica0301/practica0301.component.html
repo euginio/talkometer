@@ -1,0 +1,16 @@
+<button (click)="toggleTableVisualization()">Mostrar Tabla</button>
+
+<table *ngIf="showTable">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let product of productos">
+        <td>{{product.nombre}}</td>
+        <td>{{product.precio}}</td>
+      </tr>
+  </tbody>
+</table>

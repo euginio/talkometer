@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Talk O Meter</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-title>Rooms</ion-title>
+    <ion-card *ngFor="let room of getRooms()">
+        <ion-card-header>
+            <!-- <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle> -->
+            <ion-card-title>
+                <a routerLink="/room-details/{{room.id}}"> Room {{room.name}} </a>
+                <!-- <a routerLink="['/room-details', room.id]">{{room.name}}</a> -->
+            </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-card *ngFor="let participant of room.participants">
+                Participante {{participant.name}}
+            </ion-card>
+            <ion-input type="text" placeholder="new participant name" #newParticipantName></ion-input>
+            <ion-button (click)="room.addParticipant(newParticipantName.value); newParticipantName.value=''">
+                Add participant
+            </ion-button>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-input type="text" placeholder="new room name" #newRoomNameInput></ion-input>
+    <ion-button (click)="newRoom(newRoomNameInput.value); newRoomNameInput.value=''">
+        add room
+    </ion-button>
+    <app-practica0301></app-practica0301>
+</ion-content>
